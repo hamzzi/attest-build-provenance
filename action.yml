@@ -47,6 +47,12 @@ inputs:
       The GitHub token used to make authenticated API requests.
     default: ${{ github.token }}
     required: false
+  sigstore:
+    description: >
+      Sigstore instance to use for signing. Must be one of "public-good", "github", or "self-hosted".
+      If not specified, will be automatically determined based on repository visibility.
+    default: ''
+    required: false
 
 outputs:
   bundle-path:
@@ -78,3 +84,4 @@ runs:
         push-to-registry: ${{ inputs.push-to-registry }}
         show-summary: ${{ inputs.show-summary }}
         github-token: ${{ inputs.github-token }}
+        sigstore: ${{ inputs.sigstore }}
