@@ -70,7 +70,7 @@ runs:
   steps:
     - uses: actions/attest-build-provenance/predicate@864457a58d4733d7f1574bd8821fa24e02cf7538 # predicate@2.0.0
       id: generate-build-provenance-predicate
-    - uses: hamzzi/attest@custom # v3.0.0
+    - uses: hamzzi/attest@self-hosted # v3.0.0
       id: attest
       env:
         NODE_OPTIONS: "--max-http-header-size=32768"
@@ -84,4 +84,3 @@ runs:
         push-to-registry: ${{ inputs.push-to-registry }}
         show-summary: ${{ inputs.show-summary }}
         github-token: ${{ inputs.github-token }}
-        sigstore: ${{ inputs.sigstore }}
